@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% block title %}Home{% endblock %}
 {% block content %}
 <h2>#Werewolf IRC Channel</h2>
 <p>#Werewolf is a friendly IRC channel on EsperNet for playing "Werewolf", a theme of Mafia, via an online bot that manages the game (Wolfbot).</p>
@@ -9,6 +9,7 @@
 <ul>
     <li><a href="{{ url_for('play') }}">Play The Game</a></li>
     <li><a href="{{ url_for('stats') }}">View Stats</a></li>
+    <li><a href="{{ url_for('roles') }}">Roles Guide</a></li>
     <li><a href="{{ url_for('style') }}">Style Guide</a></li>
     <li><a href="http://github.com/Vgr255/Wolfbot">View Wolfbot's Source</a></li>
 </ul>

@@ -1,19 +1,42 @@
 {% extends "base.html" %}
 {% block content %}
-<table class="data table table-striped">
-  <tr>
-    <th>Size</th>
-    <th>Village Wins</th>
-    <th>Wolf Wins</th>
-    <th>Total Games</th>
-  </tr>
-  {% for stat in stats %}
-  <tr>
-    <td>{{ stat.size }}</td>
-    <td>{{ stat.villagewins }}</td>
-    <td>{{ stat.wolfwins }}</td>
-    <td>{{ stat.totalgames }}</td>
-  </tr>
-  {% endfor %}
-</table>
+<h2>Game Statistics</h2>
+<!--<div class="tabbable">
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="tab active"><a href="#total">Total Games</a></li>
+        <li class="tab"><a href="#wolf">Wolf Wins</a></li>
+        <li class="tab"><a href="#village">Villager Wins</a></li>
+    </ul>
+    <div class="tab-pane active" id="total">-->
+        <canvas id="total-graph" width="700" height="400"></canvas>
+    <!--</div>
+    <div class="tab-pane" id="wolf">
+        <canvas id="wolf-graph"></canvas>
+    </div>
+    <div class="tab-pane" id="village">
+        <canvas id="village-graph"></canvas>
+    </div>
+</div>-->
+{% endblock %}
+{% block js %}
+  var data = {
+    labels: [{% for stat in stats %}"{{ stat.size }} Players", {% endfor %}],
+    datasets: [
+        {
+            label: "Wolf Wins",
+            fillColor: "#FF0000",
+            data: [{% for stat in stats %}{{ stat.villagewins }}, {% endfor %}]
+        },
+        {
+            label: "Village Wins",
+            fillColor: "#00FF00",
+            data: [{% for stat in stats %}{{ stat.wolfwins }}, {% endfor %}]
+        },
+    ],
+  };
+  {% raw %}
+  var stats = new Chart(document.getElementById("total-graph").getContext("2d")).Bar(data, {
+    multiTooltipTemplate: "<%= datasetLabel %>: <%= value %>"
+  });
+  {% endraw %}
 {% endblock %}

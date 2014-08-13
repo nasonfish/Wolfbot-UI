@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Roles{% endblock %}
+{% block content %}
+<h2>Roles</h2>
+<div class="tabbable">
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="tab active"><a href="#villager">Villager</a></li>
+        <li class="tab"><a href="#wolf" style="color: red;">Wolf</a></li>
+        <li class="tab"><a href="#seer">Seer</a></li>
+        <li class="tab"><a href="#drunk">Village Drunk</a></li>
+        <li class="tab"><a href="#harlot">Harlot</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="villager">
+            <h3>Villager</h3>
+            <p>A <strong>villager</strong> is the default role for a player playing <strong>Werewolf</strong>. Their main goal is to lynch all the wolves in the game as quickly as possible, avoiding accidentally lynching their own fellow villagers or other non-wolflike players.</p>
+            <p><strong>Villagers</strong> can sit back and relax during nighttime, as they don't have any role to cater to at night.</p>
+            <p>During the day, all villagers will have the ability to lynch a certain user that they suspect was the one who attacked the village in the night. They can do this using <code>!lynch {username}</code>. This will set in a vote with the bot to lynch the user, provided enough players vote for that user. Once the bot recieves a majority vote for one user, that user will be removed from the game, and their role will be revealed.</p>
+            <p>Villagers can opt-out of voting each lynching round by using <code>!nolynch</code>. If enough users opt-out, the sun will set and it will be nightgtime again. Additionally, users can use <code>!retract</code> to retract an already-set vote for a user.</p>
+            <p>The villagers must collaborate in order to find out who the wolves are, and lynch them to remove them from the game. If the villagers fail to remove the wolves from the game until there is an equal amount of villagers and wolves, the wolves will win the game. If all the wolves are removed from the game quickly enough, the villagers will win the game.</p>
+        </div>
+        <div class="tab-pane" id="wolf">
+            <h3>Wolf</h3>
+            <p>The <strong>wolf</strong> team is the main enemy of the villagers. The <strong>wolves</strong>' main goal is to act like villagers in order to make sure they remain alive and unlynched until the end of the game.</p>
+            <p>Each night, the <strong>wolves</strong> will each receive a private message from <em>Wolfbot</em> asking which user the <strong>wolves</strong> would like to kill, using <code>kill {username}</code>.</p>
+            <p>With multiple <strong>wolves</strong>, each <strong>wolf</strong> will have the ability to private message <em>Wolfbot</em> to relay messages between themselves (as well as other users on the <strong>wolves</strong>' team)</p>
+        </div>
+        <div class="tab-pane" id="seer">
+            <h3>Seer</h3>
+            <p>The <strong>seer</strong> is one of the most basic villager roles added to the game, and appear with only <strong>5</strong> players.</p>
+            <p>A <strong>seer</strong> has the the ability to, each night, pick a user to reveal the role of to themselves.</p>
+            <p>Each night, they will be prompted by <em>Wolfbot</em> to pick a user to "see," using <code>see {username}</code>. <em>Wolfbot</em> will private message the user back the role of the user, but the seer has to be careful!</p>
+            <p><strong>Cursed villagers</strong> are picked by <em>Wolfbot</em> randomly, and serve the role of providing erronous information to the seer. <strong>Cursed villagers</strong> will show as wolves to the seer, while their true role may be something completely different.</p>
+            <p>Additonally, <strong>traitors</strong> will appear as normal villagers to the <strong>seer</strong>, but still need to be targeted in order to allow the villagers to win.</p>
+        </div>
+        <div class="tab-pane" id="drunk">
+            <h3>Village Drunk</h3>
+            <p>The <strong>village drunk</strong> is a user selected at the beginning of the game. This player is notified that they are a <strong>village drunk</strong>.</p>
+            <p>The <strong>village drunk</strong> does not gain any extra abilities, but can generally act obnoxious or inconsiderate if they choose to do so.</p>
+            <p>Since a <strong>village drunk</strong> can not also be a <strong>wolf</strong>, the village drunk is considered to be a "safe" role, since other users know that any user that claims drunk will either be counter-claimed (when a role has a certain amount of users in it, and more users than possible claim to be that role to dispute safety in that role) or be safe.</p>
+        </div>
+        <div class="tab-pane" id="harlot">
+            <h3>Harlot</h3>
+            <p>The <strong>harlot</strong> is one of the more complex villager roles. The <strong>harlot</strong> is asked each night if they would like to visit a user, using <code>visit {nickname}</code>, and can spend the night at any user's house.</p>
+            <p>The <strong>harlot</strong> can also visit themselves in order to elect out of visiting for the night). The user the harlot visits is notified that the harlot is visiting.</p>
+            <p>If the user the <strong>harlot</strong> visits is a <strong>wolf's</strong> house, the <strong>harlot</strong> will be found dead in the morning. If the person the harlot visits is another other villager, the harlot will have survived, and will have determined that the user they visited is a "safe" user.</p>
+            <p>Be careful! Traitors are not always wolves yet, and so staying with a traitor will be an indicator to the wolves who the harlot is, and give an indicator to the harlot that the traitor is "safe").</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

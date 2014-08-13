@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% block title %}{{username}}'s Statistics{% endblock %}
 {% block content %}
   <h2>{{ username }}'s playerstats</h2>
   <canvas id="playerstats" width="600" height="400"></canvas>
@@ -8,9 +9,9 @@
     labels: [{% for stat in stats %}"{{ stat.role }}", {% endfor %}],
     datasets: [
         {
-            label: "Total Games",
+            label: "Team Losses",
             fillColor: "#FF0000",
-            data: [{% for stat in stats %}{{ stat.totalgames }}, {% endfor %}]
+            data: [{% for stat in stats %}{{ stat.totalgames - stat.teamwins }}, {% endfor %}]
         },
         {
             label: "Team Wins",

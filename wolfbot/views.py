@@ -1,4 +1,4 @@
-from wolfbot import app, db, settings
+from wolfbot import app, db
 from flask import render_template, redirect, url_for
 
 class GameStats(db.Model):
@@ -44,4 +44,9 @@ def player(username):
 @app.route("/style")
 def style():
   return render_template("style.html")
+
+@app.route("/roles")
+def roles():
+  return render_template("roles.html")
+
 
