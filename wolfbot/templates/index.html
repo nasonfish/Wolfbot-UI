@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>#Werewolf IRC Channel</h2>
+<p>#Werewolf is a friendly IRC channel on EsperNet for playing "Werewolf", a theme of Mafia, via an online bot that manages the game (Wolfbot).</p>
+<ul>
+    <li><a href="{{ url_for('play') }}">Play The Game</a></li>
+    <li><a href="{{ url_for('stats') }}">View Stats</a></li>
+    <li><a href="{{ url_for('style') }}">Style Guide</a></li>
+</ul>
+<h3>View player stats</h3>
+<input type="text" id="all-filter" placeholder="Filter users"/>
+
+<ul>
+    {% for player in players %}
+    <li class="search-name" data-name='{{ player[0] }}'><a href="{{ url_for('player', username=player[0]) }}">{{ player[0] }}</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
+

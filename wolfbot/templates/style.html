@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+{% block content %}
+<h2>Villager Team Strategies</h2>
+<div class="tabbable">
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="tab active"><a href="#whisperer">Whisperer</a></li>
+        <li class="tab"><a href="#raiden">Raiden</a></li>
+    </ul>
+    <div class="tab-content" style="margin-bottom: 20px;">
+        <div class="tab-pane active" id="whisperer">
+            <h3>Whisperer</h3>
+            <p>A <strong>Whisperer</strong> will typically use private messages to communicate all information, and stay away from speaking in the channel as much as possible.</p>
+            <p>This role is typically assumed by roles such as seers, harlots, and village drunks, which can communicate privately in order to more effectively determine which users are wolves.</p>
+            <p>Whenever a user is determined "safe" in this small network of users, the user will be notified that they have been decided as safe. This is how the small network of users grow.</p>
+            <p>Rarely do whisperers use strategies like behavioral patterns to help them with the game, but will rather take any oppurtunity to delay the game in order to afford roles more time.</p>
+            <p>Whisperers do not normally reveal their role in public if the role can still be used (a village drunk would likely request other "safe" roles to private message them).</p>
+            <p>This strategy creates a huge risk of fake-claiming, however, if a user decides to imitate a safe role. Additionally, this strategy can put safe users in danger if they happen to play into the hands of a traitor, and therefore should be used with extreme caution, especially in larger games that have traitors and multiple wolves.</p>
+        </div>
+        <div class="tab-pane" id="raiden">
+            <h3>Raiden</h3>
+            <p>A <strong>Raiden</strong> fundamentally clashes with a <strong>Whisperer</strong> in most gameplay issues.</p>
+            <p>A <strong>Raiden</strong> attempts to conceal roles in favor of working with others to learn the roles of others, likely by allowing roles with concrete evidence to urge toward a certain action or using previously gathered knowledge to unearth the wolves' ideas and intents.</p>
+            <p>One important note is that when a <strong>Raiden</strong> does get picked for a role, they will never reveal their identity as that role, with the risk of being lynched.</p>
+            <p>This strategy relies less on certain users and, as such, has far less caveats. These users play strictly to their ideas to make sure they fairly discover the information they need.</p>
+        </div>
+    </div>
+{% endblock %}

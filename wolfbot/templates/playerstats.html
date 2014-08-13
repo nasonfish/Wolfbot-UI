@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>{{ username }}'s playerstats</h2>
+  {% for stat in stats %}
+    <p>As <strong>{{ stat.role }}</strong>, {{ stat.teamwins }} team wins, and {{ stat.individualwins }} individual wins. {{ stat.totalgames }} total games.</p>
+  {% endfor %}
+{% endblock %}

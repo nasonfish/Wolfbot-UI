@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Hammersmith+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Actor' rel='stylesheet' type='text/css'>
+    <link href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <style>
+    .header{
+        background-image: url('/static/img/squared_metal.png');
+    }
+    body{
+        background-image: url('/static/img/light_grey.png');
+    }
+    .title{
+        color: black;
+        text-decoration: none;
+        padding-left: 10px;
+    }
+    h1, h2, h3, h4, h5, h6{
+        font-family: 'Hammersmith One', sans-serif;
+    }
+    body{
+        font-family: 'Actor', sans-serif;
+    }
+    .subhead{
+        font-size: 14px;
+        vertical-align: bottom;
+        padding-left: 10px;
+        padding-bottom: 4px;
+    }
+    .content{
+        margin: 25px;
+    }
+    {% block style %}{% endblock style %}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <table>
+            <tr>
+                <td>
+                    <h2><a href="/" class="title">Wolfbot</a></h2>
+                </td>
+                <td class="subhead">
+                    <p>Found in #Werewolf on EsperNet</p>
+                </td>
+            </tr>
+            <!--<tr>
+                <td>
+                    <a href="/">home? other buttons?</a>
+                </td>
+            </tr>-->
+        </table>
+    </div>
+    <div class="content">
+        {% block content %}{% endblock content %}
+    </div>
+    <script src="/static/js/simpledom.min.js"></script>
+    <script src="/static/js/app.js"></script>
+    <script>
+        {% block js %}{% endblock js %}
+    </script>
+</body>
+</html>

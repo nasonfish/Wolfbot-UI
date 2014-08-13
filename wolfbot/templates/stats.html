@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<table class="data table table-striped">
+  <tr>
+    <th>Size</th>
+    <th>Village Wins</th>
+    <th>Wolf Wins</th>
+    <th>Total Games</th>
+  </tr>
+  {% for stat in stats %}
+  <tr>
+    <td>{{ stat.size }}</td>
+    <td>{{ stat.villagewins }}</td>
+    <td>{{ stat.wolfwins }}</td>
+    <td>{{ stat.totalgames }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

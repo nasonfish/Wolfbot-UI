@@ -1,0 +1,24 @@
+* {
+  color: #64f;
+}
+
+h1, h2, h3, h4, h5, h6{
+  color: #87c;
+}
+
+#header{
+  width: 100%;
+  opacity: 0.4;
+  background-color: #777;
+}
+
+#header td{
+  background-color: blue;
+  border-radius: 4px;
+  color: #2e8;
+  border: 2px solid black;
+}
+
+#header a{
+  text-decoration: none;
+}
