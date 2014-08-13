@@ -1,7 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
   <h2>{{ username }}'s playerstats</h2>
-  {% for stat in stats %}
-    <p>As <strong>{{ stat.role }}</strong>, {{ stat.teamwins }} team wins, and {{ stat.individualwins }} individual wins. {{ stat.totalgames }} total games.</p>
-  {% endfor %}
+  <canvas id="playerstats" width="600" height="400"></canvas>
+{% endblock %}
+{% block js %}
+  var data = {
+    labels: [{% for stat in stats %}"{{ stat.role }}", {% endfor %}],
+    datasets: [
+        {
+            label: "Total Games",
+            fillColor: "#FF0000",
+            data: [{% for stat in stats %}{{ stat.totalgames }}, {% endfor %}]
+        },
+        {
+            label: "Team Wins",
+            fillColor: "#00FF00",
+            data: [{% for stat in stats %}{{ stat.teamwins }}, {% endfor %}]
+        },
+        {
+            label: "Individual Wins",
+            fillColor: "#0000FF",
+            data: [{% for stat in stats %}{{ stat.individualwins }}, {% endfor %}]
+        }
+    ],
+  };
+  {% raw %}
+  var stats = new Chart(document.getElementById("playerstats").getContext("2d")).Bar(data, {
+    multiTooltipTemplate: "<%= datasetLabel %>: <%= value %>"
+  });
+  {% endraw %}
 {% endblock %}
